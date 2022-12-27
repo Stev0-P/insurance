@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/system";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./views/home";
