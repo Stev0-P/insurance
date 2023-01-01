@@ -41,7 +41,7 @@ const Home = () => {
              <Container maxWidth="lg">
               <Stack direction={matches ? "column" : "row"} spacing={4}>
               <Box/>
-              <Box component="img" src={image1} alt="image" sx={{height: "300px" , width: "500px", }}>
+              <Box component="img" src={image1} alt="image" sx={{height: "200px" , width: "300px", }}>
 
               </Box>
               <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -85,7 +85,7 @@ const Home = () => {
             </Button>
           </Box>
         </Box>
-        <Box component="img" src={image} alt="branding-image" sx={{height: "300px" , width: "300px"}}></Box>
+        <Box component="img" src={image} alt="branding-image" sx={{height: "200px" , width: "300px"}}></Box>
       </Stack>
     </Container>
           </Box>
