@@ -1,4 +1,4 @@
-import { Typography, TextField, Divider } from "@mui/material";
+import { Typography, TextField, Divider, Button } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import { useFormik } from 'formik';
@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { CssBaseline, Link } from "@mui/material";
 import Navbar from "./sections/NavBar";
 import Banner from "./sections/Banner";
+import heroBackgroundImage from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/baner.jpeg";
 
 const Form = () => {
 
@@ -117,7 +118,63 @@ const Form = () => {
             flexGrow: 1,
           }}>
             <Navbar />
-            <Banner />
+            <Box
+      sx={{
+        p: 1,
+        position: "relative",
+        backgroundImage: `url("${heroBackgroundImage}")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "50% 64%",
+        backgroundSize: "cover",
+       
+      }}
+    >
+      {/* Increase the network loading priority of the background image. */}
+      <img
+        style={{ display: "none"}}
+        src={heroBackgroundImage}
+        alt="increase priority"
+      />
+      <Container
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          
+        }}
+      >
+        <Box mt={10} mb={5}  sx={{ maxWidth: 752, margin: 5 }}>
+            
+          <Typography variant="h2" color="initial" mb={5} textAlign="center"  sx={{outline: "white", margin: 3,  zIndex: 4}}>
+           M9 Insurance
+          </Typography>
+    
+
+          <Typography
+            variant="body1"
+            color="white"
+            align="center"
+            sx={{ textAlign: "center" }}
+          >
+            We guarantee to provide you with the lowest quote available! 
+          </Typography>
+
+          <Box
+            mt={4}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            
+            <Button variant="outlined" size="large" color="warning">
+              Contact Us
+            </Button>
+          </Box>
+        </Box>
+      </Container>
+    </Box>
            <Box>
             <Typography variant="h3" sx={{display: "flex", margin: 2, font: "bold"}}>
                 Fill In the Form To Receive the Quote!
@@ -144,15 +201,25 @@ const Form = () => {
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
          value={formik.values.regNumber}
-         sx= {{marginBottom: 1, 
-               marginTop: 1}}/>
+         sx= {{marginBottom: 2, 
+               marginTop: 2}}/>
        {formik.touched.regNumber && formik.errors.regNumber ? (
          <div>{formik.errors.regNumber}</div>
        ) : null}
 
         </Box>
-     <Divider/>
+        <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+       
+        <Divider sx={{width: {lg: '40%', md: '60%', sm: '100%'},}}/>
+        </Box>
      <Box>
+     
        <TextField id="carPurchaseDate" label="Car Purchase Date " variant="outlined"  
          name="carPurchaseDate"
          type="text"
@@ -160,14 +227,23 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.carPurchaseDate}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.carPurchaseDate && formik.errors.carPurchaseDate ? (
          <div>{formik.errors.carPurchaseDate}</div>
        ) : null}
 
 </Box>
-<Divider/>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
+
 
        <TextField id="title" label="Title " variant="outlined"  
          name="title"
@@ -176,13 +252,22 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.title}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}
+            marginTop: 2}}
          />
        {formik.touched.title && formik.errors.title ? (
          <div>{formik.errors.title}</div>
        ) : null}
  
  </Box>
+ <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
  <Box>
  
       
@@ -193,12 +278,21 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.fullName}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.fullName && formik.errors.fullName ? (
          <div>{formik.errors.fullName}</div>
        ) : null}
 
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box> 
        <TextField id="dob" label="Date of Birth" variant="outlined"  
          name="dob"
@@ -207,13 +301,21 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.dob}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.dob && formik.errors.dob ? (
          <div>{formik.errors.dob}</div>
        ) : null}
 
 </Box>
-
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
 
        <TextField id="postCode" label="Post Code " variant="outlined"  
@@ -223,12 +325,20 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.postCode}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.postCode && formik.errors.postCode ? (
          <div>{formik.errors.postCode}</div>
        ) : null}
 </Box>
-
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box> 
        <TextField id="fullAddress" label="Full Address " variant="outlined"  
          name="fullAddress"
@@ -237,12 +347,21 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.fullAddress}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.fullAddress && formik.errors.fullAddress ? (
          <div>{formik.errors.fullAddress}</div>
        ) : null}
 
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
 
        <TextField id="email" label="Email " variant="outlined"  
@@ -252,12 +371,21 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.email}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.email && formik.errors.email ? (
          <div>{formik.errors.email}</div>
        ) : null}
  
  </Box>
+ <Box
+            sx={{
+             
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
  <Box>
  <TextField id="number" label="Tel. Number " variant="outlined"  
          name="number"
@@ -266,12 +394,21 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.number}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.number && formik.errors.number ? (
          <div>{formik.errors.number}</div>
        ) : null}
  
  </Box>
+ <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
  <Box>
 
 
@@ -282,12 +419,21 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.whenLicense}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.whenLicense && formik.errors.whenLicense ? (
          <div>{formik.errors.whenLicense}</div>
        ) : null}
 
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
 
 <TextField id="accidentClaims" label="Accident Claims " variant="outlined"  
@@ -297,12 +443,21 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.accidentClaims}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.accidentClaims && formik.errors.accidentClaims ? (
          <div>{formik.errors.accidentClaims}</div>
        ) : null}
  
  </Box>
+ <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
  <Box>
 
 
@@ -313,11 +468,20 @@ const Form = () => {
          onBlur={formik.handleBlur}
          value={formik.values.penaltyPoints}
          sx= {{marginBottom: 2, 
-            marginTop: 1}}/>
+            marginTop: 2}}/>
        {formik.touched.penaltyPoints && formik.errors.penaltyPoints ? (
          <div>{formik.errors.penaltyPoints}</div>
        ) : null}
   </Box>
+  <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
   <Box>
 
  <TextField id="policyStartDate" label="Policy  Start Date" variant="outlined"  
@@ -333,6 +497,15 @@ const Form = () => {
        ) : null}
  
  </Box>
+ <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
  <Box>
  <TextField id="noCLaimsBonus" label="No Claims Bonus " variant="outlined"  
          name="noClaimsBonus"
@@ -346,6 +519,15 @@ const Form = () => {
          <div>{formik.errors.number}</div>
        ) : null}
  </Box>
+ <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
  <Box>
  <TextField id="prevInsurancePrice" label="Previous Insurance Price " variant="outlined"  
          name="prevInsurancePrice"
@@ -359,6 +541,15 @@ const Form = () => {
          <div>{formik.errors.prevInsurancePrice}</div>
        ) : null}
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
         
  <TextField id="fullNameAdd" label="Additional Driver Full Name " variant="outlined"  
@@ -374,6 +565,15 @@ const Form = () => {
        ) : null}
 
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
                
  <TextField id="dobAdd" label="Additional Driver Date Of Birth" variant="outlined"  
@@ -388,6 +588,15 @@ const Form = () => {
          <div>{formik.errors.dobAdd}</div>
        ) : null}
 </Box> 
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
                       
  <TextField id="whenLicenseAdd" label="Additional Driver License Start DAte " variant="outlined"  
@@ -403,6 +612,15 @@ const Form = () => {
        ) : null}
  
  </Box>
+ <Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
  <Box>
  <TextField id="accidentClaimsAdd" label="Additional Driver Accident Claims " variant="outlined"  
          name="accidentClaimsAdd"
@@ -416,6 +634,15 @@ const Form = () => {
          <div>{formik.errors.accidentClaimsAdd}</div>
        ) : null}
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
 <TextField id="penaltyPointsAdd" label="Additional Driver Penalty Points " variant="outlined"  
          name="penaltyPointsAdd"
@@ -429,6 +656,15 @@ const Form = () => {
          <div>{formik.errors.penaltyPointsAdd}</div>
        ) : null}
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
 
 
@@ -444,6 +680,15 @@ const Form = () => {
          <div>{formik.errors.noClaimsBonusAdd}</div>
        ) : null}
 </Box>
+<Box
+            sx={{
+              
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+        <Divider sx={{width: {lg: '40%', md: '60%'},}}/>
+    </Box>
 <Box>
 <TextField id="blackBox" label="Black Box " variant="outlined"  
          name="blackBox"
@@ -459,7 +704,7 @@ const Form = () => {
  </Box>
 
  
-       <button type="submit">Submit</button>
+       <Button variant="contained" size="large" color="warning" type="submit">Submit</Button>
      </form>
 
      </Box>

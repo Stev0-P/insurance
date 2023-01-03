@@ -16,11 +16,13 @@ import { grey } from "@mui/material/colors";
 import image from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/contactUs.jpeg";
 import image1 from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/insurance.jpeg";
 import { DisabledByDefault } from "@mui/icons-material";
+import {useNavigate} from "react-router-dom"
 
 const Home = () => {
   // TODO document why this arrow function is empty
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
   return (
     <CssBaseline>
       <React.Fragment>
@@ -53,7 +55,7 @@ const Home = () => {
                 Click below to find out the best quote available to you on the market, please fill out information to the best of your knowledge
                 so we will be able to provide you with most suitable insurance for you!
               </Typography>
-              <Button variant="contained" size="large" color="warning">
+              <Button variant="contained" size="large" color="warning" onClick={()=>navigate("./form")}>
                 Get a Quote!
               </Button>
                </Box>
