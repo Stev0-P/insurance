@@ -7,8 +7,52 @@ import { CssBaseline, Link } from "@mui/material";
 import Navbar from "./sections/NavBar";
 import Banner from "./sections/Banner";
 import heroBackgroundImage from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/baner.jpeg";
+import axios from "axios";
 
 const Form = () => {
+
+  const submit = () => {
+    console.log("hello")
+    console.log(formik.values.regNumber)
+   const fetchApi = async () => {
+      try {
+        const { data: response } = await axios.post("/formAPI/", {
+          regNumber: formik.values.regNumber,
+          carPurchaseDate: formik.values.carPurchaseDate,
+          title: formik.values.title,
+          fullName: formik.values.fullName,
+          dob: formik.values.dob,
+          fullAddress: formik.values.fullAddress,
+          postCode: formik.values.postCode,
+          email: formik.values.email,
+          number: formik.values.number,
+          whenLicense: formik.values.whenLicense,
+          accidentClaims: formik.values.accidentClaims,
+          penaltyPoints: formik.values.penaltyPoints,
+          policyStartDate: formik.values.policyStartDate,
+          noClaimsBonus: formik.values.noClaimsBonus,
+          prevInsurancePrice: formik.values.prevInsurancePrice,
+
+          //add Drivers
+          fullNameAdd: formik.values.fullNameAdd,
+          dobAdd: formik.values.dobAdd,
+          whenLicenseAdd: formik.values.whenLicenseAdd,
+          accidentClaimsAdd: formik.values.accidentClaimsAdd,
+          penaltyPointsAdd: formik.values.penaltyPointsAdd,
+          noClaimsBonusAdd: formik.values.noClaimsBonusAdd,
+
+          blackBox: formik.values.noClaimsBonusAdd,
+          
+        
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchApi();
+    
+  
+  };
 
     const formik = useFormik({
         initialValues: {
@@ -43,12 +87,14 @@ const Form = () => {
         },
         validationSchema: Yup.object({
             regNumber: Yup.string()
-            .max(15, 'Must be 15 characters or less')
+            .max(6, 'Must be 6 characters or less')
             .required('Required'),
             carPurchaseDate: Yup.string()
             .max(20, 'Must be 20 characters or less')
             .required('Required'),
-            title: Yup.string().email('Invalid email address').required('Required'),
+            title:  Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
             fullName: Yup.string()
              .max(15, 'Must be 15 characters or less')
              .required('Required'),
@@ -56,44 +102,48 @@ const Form = () => {
              .max(20, 'Must be 20 characters or less')
              .required('Required'),
             postCode: Yup.string()
-             .max(20, 'Must be 20 characters or less')
+             .max(6, 'Must be 6 characters or less')
              .required('Required'),
-            fullAddress: Yup.string().email('Invalid email address').required('Required'),
-            email: Yup.string()
-             .max(15, 'Must be 15 characters or less')
-             .required('Required'),
+            fullAddress: Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
+            email: Yup.string().email('Invalid email address').required('Required'),
             number: Yup.string()
              .max(20, 'Must be 20 characters or less')
              .required('Required'),
-            whenLicense: Yup.string().email('Invalid email address').required('Required'),
+            whenLicense: Yup.string()
+            .max(15, 'Must be 15 characters or less')
+            .required('Required'),
             accidentClaims: Yup.string()
              .max(15, 'Must be 15 characters or less')
              .required('Required'),
             penaltyPoints: Yup.string()
              .max(20, 'Must be 20 characters or less')
              .required('Required'),
-            policyStartDate: Yup.string().email('Invalid email address').required('Required'),
+            policyStartDate: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
             noClaimsBonus: Yup.string()
              .max(20, 'Must be 20 characters or less')
              .required('Required'),
-            prevInsurancePrice: Yup.string().email('Invalid email address').required('Required'),
+            prevInsurancePrice: Yup.string()
+            .max(20, 'Must be 20 characters or less')
+            .required('Required'),
+
+            //additional driver------------------------
 
             fullNameAdd: Yup.string()
-             .max(15, 'Must be 15 characters or less')
-             .required('Required'),
+             .max(15, 'Must be 15 characters or less'),
             dobAdd: Yup.string()
-             .max(20, 'Must be 20 characters or less')
-             .required('Required'),
-            whenLicenseAdd: Yup.string().email('Invalid email address').required('Required'),
+             .max(20, 'Must be 20 characters or less'),
+            whenLicenseAdd: Yup.string()
+            .max(20, 'Must be 20 characters or less'),
             accidentClaimsAdd: Yup.string()
-             .max(15, 'Must be 15 characters or less')
-             .required('Required'),
+             .max(15, 'Must be 15 characters or less'),
             penaltyPointsAdd: Yup.string()
-             .max(20, 'Must be 20 characters or less')
-             .required('Required'),
+             .max(20, 'Must be 20 characters or less'),
             noClaimsBonusAdd: Yup.string()
-             .max(20, 'Must be 20 characters or less')
-             .required('Required'),
+             .max(20, 'Must be 20 characters or less') ,
           
       
             blackBox: Yup.string()
@@ -105,6 +155,20 @@ const Form = () => {
           alert(JSON.stringify(values, null, 2));
         },
       });
+
+
+      const onSubmit = (item) => {
+        const fetchApi = async () => {
+          try {
+            const { data: response } = await axios.delete(`/api/favourites/delete/${item.recipeID}`);
+            
+            console.log(response);
+          } catch (err) {
+            console.log(err);
+          }
+        };
+        fetchApi();
+      };
 
     return (
 <CssBaseline>
@@ -437,7 +501,7 @@ const Form = () => {
 <Box>
 
 <TextField id="accidentClaims" label="Accident Claims " variant="outlined"  
-         name="number"
+         name="accidentClaims"
          type="text"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
@@ -485,7 +549,7 @@ const Form = () => {
   <Box>
 
  <TextField id="policyStartDate" label="Policy  Start Date" variant="outlined"  
-         name="policyStartDAte"
+         name="policyStartDate"
          type="text"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
@@ -704,7 +768,7 @@ const Form = () => {
  </Box>
 
  
-       <Button variant="contained" size="large" color="warning" type="submit">Submit</Button>
+       <Button variant="contained" size="large" color="warning" type="submit" onClick={()=> {submit()}}>Submit</Button>
      </form>
 
      </Box>

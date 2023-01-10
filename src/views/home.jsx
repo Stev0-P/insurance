@@ -55,7 +55,7 @@ const Home = () => {
                 Click below to find out the best quote available to you on the market, please fill out information to the best of your knowledge
                 so we will be able to provide you with most suitable insurance for you!
               </Typography>
-              <Button variant="contained" size="large" color="warning" onClick={()=>navigate("./form")}>
+              <Button variant="contained" size="large" color="warning" onClick={navigate("./form")}>
                 Get a Quote!
               </Button>
                </Box>
