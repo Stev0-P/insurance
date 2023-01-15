@@ -1,5 +1,6 @@
 import {
     
+  Button,
     Drawer,
     IconButton,
     Link,
@@ -17,7 +18,7 @@ import {
 
   import { styled,useTheme  } from "@mui/material/styles";
   import useMediaQuery from "@mui/material/useMediaQuery";
- 
+ import {useNavigate} from "react-router-dom"
   
   const MenuLink = styled(Link)(({ theme }) => ({
     textTransform: "uppercase",
@@ -40,12 +41,27 @@ import {
       href: `#${item}`,
     })
   );
+
+  const linkList = [
+    {
+      text: "Home",
+      route: "/",
+    },
+    {
+      text: "Get a Quote!",
+      route: "/form",
+    },
+    {
+      text: "Contact Us",
+      //route: "/",
+    },
+  ];
   
   export default function Navbar() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"));
     const [drawerVisible, setDrawerVisible] = React.useState(false);
-  
+   const navigate = useNavigate();
     return (
        
       <Box >
@@ -77,29 +93,30 @@ import {
           {!matches && (
             <Box sx={{ display: "flex", alignItems: "center" ,  maxWidth: "none"}}>
               <Stack direction="row" spacing={2}>
-                {navLinks.map((item, index) => {
+                {linkList.map((item, index) => {
                   return (
                     <Box
                       key={index}
                       
                       sx={{ listStyleType: "none" }}
                     >
-                      <MenuLink
-                        href={item.href}
+                      
+                      <Button
+                        href={item.route}
                         underline="hover"
                         color="text.primary"
                         variant="body1"
                         sx={{ textTransform: "uppercase" }}
                       >
-                        {item.title}
-                      </MenuLink>
+                        {item.text}
+                      </Button>
                     </Box>
                   );
                 })}
               </Stack>
             </Box>
           )}
-  
+  {matches && (
           <Drawer
             anchor="right"
             open={drawerVisible}
@@ -107,12 +124,13 @@ import {
               setDrawerVisible(false);
             }}
           >
-            {navLinks.map((item, index) => {
+            {linkList.map((item, index) => {
               return (
                 <List key={index}>
                   <ListItem disablePadding>
                     <ListItemButton
-                      href={item.href}
+                     // href={item.href}
+                     onClick={item.text === "Contact Us" ? () => window.location = 'mailto:m9insurance@outlook.com' : () => navigate(item.route) }
                       component={Link}
                       sx={{ px: 6 , color: "orange"}}
                       
@@ -124,7 +142,7 @@ import {
                             color="initial"
                             sx={{ fontWeight: 600 }}
                           >
-                            {item.title}
+                            {item.text}
                           </Typography>
                         }
                       />
@@ -133,21 +151,25 @@ import {
                 </List>
               );
             })}
+            
           </Drawer>
-  
-          {matches && (
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton
-                aria-label="menu"
-                size="large"
-                onClick={() => {
-                  setDrawerVisible(true);
-                }}
-              >
-                <MenuIcon sx={{ m: 0 }} />
-              </IconButton>
-            </Box>
-          )}
+          
+   )}
+
+{matches && (
+           <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton
+            aria-label="menu"
+            size="large"
+            onClick={() => {
+              setDrawerVisible(true);
+            }}
+          >
+            <MenuIcon sx={{ m: 0 }} />
+          </IconButton>
+        </Box>
+           
+     )}    
         </Box>
       </Box>
      

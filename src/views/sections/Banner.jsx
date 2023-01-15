@@ -1,10 +1,11 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
-
+import { useEffect } from "react";
 import React from "react";
 import heroBackgroundImage from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/baner.jpeg";
-
+import {useNavigate} from "react-router-dom"
 export default function Banner() {
+const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -55,10 +56,10 @@ export default function Banner() {
               justifyContent: "center",
             }}
           >
-            <Button variant="contained" size="large" color="warning" sx={{ mr: 1 }}>
+            <Button variant="contained" size="large" color="warning" sx={{ mr: 1 }} onClick={() =>navigate("./form")}>
               Get a Quote!
             </Button>
-            <Button variant="outlined" size="large" color="warning">
+            <Button variant="outlined" size="large" color="warning" onClick={() => window.location = 'mailto:m9insurance@outlook.com'} >
               Contact Us
             </Button>
           </Box>

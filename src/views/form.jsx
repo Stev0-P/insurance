@@ -1,4 +1,4 @@
-import { Typography, TextField, Divider, Button } from "@mui/material";
+import { Typography, TextField, Divider, Button, InputLabel, Select } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
 import { useFormik } from 'formik';
@@ -87,7 +87,7 @@ const Form = () => {
         },
         validationSchema: Yup.object({
             regNumber: Yup.string()
-            .max(6, 'Must be 6 characters or less')
+            .max(8, 'Must be 8 characters or less')
             .required('Required'),
             carPurchaseDate: Yup.string()
             .max(20, 'Must be 20 characters or less')
@@ -115,10 +115,10 @@ const Form = () => {
             .max(15, 'Must be 15 characters or less')
             .required('Required'),
             accidentClaims: Yup.string()
-             .max(15, 'Must be 15 characters or less')
+             .max(200, 'Explain if you have any accidents, or just say None if there is none')
              .required('Required'),
             penaltyPoints: Yup.string()
-             .max(20, 'Must be 20 characters or less')
+             .max(20, 'Let us know how many or just type in None if you dont have any')
              .required('Required'),
             policyStartDate: Yup.string()
             .max(20, 'Must be 20 characters or less')
@@ -157,18 +157,7 @@ const Form = () => {
       });
 
 
-      const onSubmit = (item) => {
-        const fetchApi = async () => {
-          try {
-            const { data: response } = await axios.delete(`/api/favourites/delete/${item.recipeID}`);
-            
-            console.log(response);
-          } catch (err) {
-            console.log(err);
-          }
-        };
-        fetchApi();
-      };
+    
 
     return (
 <CssBaseline>
@@ -232,7 +221,7 @@ const Form = () => {
             }}
           >
             
-            <Button variant="outlined" size="large" color="warning">
+            <Button variant="outlined" size="large" color="warning"  onClick={() => window.location = 'mailto:m9insurance@outlook.com'}>
               Contact Us
             </Button>
           </Box>
@@ -274,13 +263,13 @@ const Form = () => {
         </Box>
         <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
           >
        
-        <Divider sx={{width: {lg: '40%', md: '60%', sm: '100%'},}}/>
+        <Divider sx={{width: {lg: '40%', md: '60%', sm: '100%'}, }}/>
         </Box>
      <Box>
      
@@ -299,7 +288,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -321,11 +310,13 @@ const Form = () => {
        {formik.touched.title && formik.errors.title ? (
          <div>{formik.errors.title}</div>
        ) : null}
+
+
  
  </Box>
  <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -350,7 +341,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -373,7 +364,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -396,7 +387,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -419,7 +410,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -443,7 +434,7 @@ const Form = () => {
  </Box>
  <Box
             sx={{
-             
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -466,7 +457,7 @@ const Form = () => {
  </Box>
  <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -491,7 +482,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -515,7 +506,7 @@ const Form = () => {
  </Box>
  <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -539,7 +530,7 @@ const Form = () => {
   </Box>
   <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -563,7 +554,7 @@ const Form = () => {
  </Box>
  <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -585,7 +576,7 @@ const Form = () => {
  </Box>
  <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -607,7 +598,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -631,7 +622,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -654,7 +645,7 @@ const Form = () => {
 </Box> 
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -678,7 +669,7 @@ const Form = () => {
  </Box>
  <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -700,7 +691,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -722,7 +713,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -746,7 +737,7 @@ const Form = () => {
 </Box>
 <Box
             sx={{
-              
+              display: {lg: "flex", md: "flex", sm: "block"},
               alignItems: "center",
               justifyContent: "center",
             }}
