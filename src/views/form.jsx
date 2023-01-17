@@ -1,5 +1,5 @@
 import { Typography, TextField, Divider, Button, InputLabel, Select } from "@mui/material";
-import { Box, Container } from "@mui/system";
+import { Box, Container} from "@mui/system";
 import React from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -245,7 +245,7 @@ const Form = () => {
         }}>
 
         
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={() => formik.handleSubmit}>
          <Box>
       
         <TextField id="regNumber" label="Reg. Number" variant="outlined"  

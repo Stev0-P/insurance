@@ -72,9 +72,7 @@ const Home = () => {
               Contact Us
             </Typography>
             <Typography variant="body1" color="initial" sx={{ py: 4 }}>
-              We are always happy to help you with any advice or enquiries regarding Car Insurance:
-              <p />
-              WhatsApp: +44 079xxxxxxxxx
+              We are always happy to help you with any advice or enquiries regarding Car Insurance
             </Typography>
             <Button
               variant="outlined"

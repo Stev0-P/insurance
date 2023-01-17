@@ -56,7 +56,7 @@ app.post("/formAPI", async (req, res, next) => {
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: "smtp.outlook.com",
+    host: "smtp.office365.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
@@ -68,9 +68,9 @@ app.post("/formAPI", async (req, res, next) => {
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: "m9insurance@outlook.com", // sender address
-    to: "steven011506@gmail.com , m9insurance@outlook.com , m9insurance@gmail.com ", // list of receivers
+    to: "m9insurance@outlook.com", // list of receivers
     subject: `${fullName} Quote`, // Subject line
-    // text: "Hello world?", // plain text body
+
     html: `<div>
     <div>
      <h1>Details  for ${fullName} </h1>

@@ -103,6 +103,7 @@ import {
                       
                       <Button
                         href={item.route}
+                        onClick={item.text=== "Contact Us" ? () => window.location = 'mailto:m9insurance@outlook.com' : () => navigate(item.route)}
                         underline="hover"
                         color="text.primary"
                         variant="body1"
