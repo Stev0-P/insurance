@@ -16,7 +16,7 @@ const Form = () => {
     
    const fetchApi = async () => {
       try {
-        await axios.post("/formAPI", {
+        await axios.post("http://ec2-13-42-30-104.eu-west-2.compute.amazonaws.com:5000/formAPI", {
           regNumber: formik.values.regNumber,
           carPurchaseDate: formik.values.carPurchaseDate,
           title: formik.values.title,
@@ -44,7 +44,12 @@ const Form = () => {
           blackBox: formik.values.noClaimsBonusAdd,
           
           
-        });
+        }
+
+      
+        
+        
+      );
       } catch (err) {
         console.log(err);
         
