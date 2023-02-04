@@ -1,6 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { Router } from "express";
 import nodemailer from "nodemailer";
 import { config } from "dotenv";
 

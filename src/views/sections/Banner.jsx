@@ -1,6 +1,5 @@
 import { Box, Button, Container, Typography } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { useEffect } from "react";
+
 import React from "react";
 import heroBackgroundImage from "../../images/baner.jpeg";
 import {useNavigate} from "react-router-dom"

@@ -1,14 +1,14 @@
-import { Typography, TextField, Divider, Button, InputLabel, Select } from "@mui/material";
+import { Typography, TextField, Divider, Button, } from "@mui/material";
 import { Box, Container} from "@mui/system";
 import React from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { CssBaseline, Link } from "@mui/material";
+import { CssBaseline, } from "@mui/material";
 import Navbar from "./sections/NavBar";
-import Banner from "./sections/Banner";
 import heroBackgroundImage from "../images/baner.jpeg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 
 const Form = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Form = () => {
     
    const fetchApi = async () => {
       try {
-        const { data: response } = await axios.post("/formAPI/", {
+        await axios.post("/formAPI/", {
           regNumber: formik.values.regNumber,
           carPurchaseDate: formik.values.carPurchaseDate,
           title: formik.values.title,
@@ -43,10 +43,11 @@ const Form = () => {
 
           blackBox: formik.values.noClaimsBonusAdd,
           
-        
+          
         });
       } catch (err) {
         console.log(err);
+        
       }
     };
     fetchApi();

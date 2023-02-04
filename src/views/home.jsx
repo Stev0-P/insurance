@@ -1,12 +1,10 @@
 import React from "react";
 import { Box, Container } from "@mui/system";
 import Button from "@mui/material/Button";
-import { CssBaseline, Typography, Link } from "@mui/material";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Avatar from "@mui/material/Avatar";
+import { CssBaseline, Typography,  } from "@mui/material";
+
 import Stack from "@mui/material/Stack";
-import { deepOrange, deepPurple } from "@mui/material/colors";
+
 import Navbar from "./sections/NavBar";
 import Banner from "./sections/Banner";
 import ServiceBenefits from "./sections/ServiceBenefits";
@@ -15,7 +13,7 @@ import {useMediaQuery, useTheme} from "@mui/material";
 import { grey } from "@mui/material/colors";
 import image from "../images/contactUs.jpeg";
 import image1 from "../images/insurance.jpeg";
-import { DisabledByDefault } from "@mui/icons-material";
+
 import {useNavigate} from "react-router-dom"
 
 const Home = () => {

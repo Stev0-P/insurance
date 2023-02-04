@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Container} from "@mui/system";
-import { Typography, TextField, Divider, Button, InputLabel, Select } from "@mui/material";
-import { CssBaseline, Link } from "@mui/material";
+import { Typography, Button } from "@mui/material";
+import { CssBaseline,  } from "@mui/material";
 import Navbar from "./sections/NavBar";
-import Banner from "./sections/Banner";
+
 import heroBackgroundImage from "../images/baner.jpeg";
 import {useNavigate} from "react-router-dom"
 
