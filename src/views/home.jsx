@@ -13,8 +13,8 @@ import ServiceBenefits from "./sections/ServiceBenefits";
 import {useMediaQuery, useTheme} from "@mui/material";
 
 import { grey } from "@mui/material/colors";
-import image from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/contactUs.jpeg";
-import image1 from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/insurance.jpeg";
+import image from "../images/contactUs.jpeg";
+import image1 from "../images/insurance.jpeg";
 import { DisabledByDefault } from "@mui/icons-material";
 import {useNavigate} from "react-router-dom"
 

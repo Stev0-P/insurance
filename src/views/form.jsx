@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { CssBaseline, Link } from "@mui/material";
 import Navbar from "./sections/NavBar";
 import Banner from "./sections/Banner";
-import heroBackgroundImage from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/baner.jpeg";
+import heroBackgroundImage from "../images/baner.jpeg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
