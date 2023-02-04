@@ -2,8 +2,11 @@ import express from "express";
 import bodyParser from "body-parser";
 import { Router } from "express";
 import nodemailer from "nodemailer";
+import { config } from "dotenv";
 
 const app = express();
+
+config();
 
 const PORT = process.env.PORT || 5000;
 
@@ -56,19 +59,19 @@ app.post("/formAPI", async (req, res, next) => {
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: "smtp.office365.com",
-    port: 587,
+    host: process.env.EHOST,
+    port: process.env.EPORT,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "m9insurance@outlook.com", // generated ethereal user
-      pass: "March2022!", // generated ethereal password
+      user: process.env.EUSER, // generated ethereal user
+      pass: process.env.PASS, // generated ethereal password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: "m9insurance@outlook.com", // sender address
-    to: "m9insurance@outlook.com", // list of receivers
+    from: process.env.EUSER, // sender address
+    to: process.env.EUSER, // list of receivers
     subject: `${fullName} Quote`, // Subject line
 
     html: `<div>

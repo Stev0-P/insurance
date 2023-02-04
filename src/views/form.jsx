@@ -8,12 +8,12 @@ import Navbar from "./sections/NavBar";
 import Banner from "./sections/Banner";
 import heroBackgroundImage from "C:/Users/Steven P/Desktop/Insurance/insurance/insurance/src/images/baner.jpeg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
-
+  const navigate = useNavigate();
   const submit = () => {
-    console.log("hello")
-    console.log(formik.values.regNumber)
+    
    const fetchApi = async () => {
       try {
         const { data: response } = await axios.post("/formAPI/", {
@@ -50,6 +50,7 @@ const Form = () => {
       }
     };
     fetchApi();
+    navigate("/completed");
     
   
   };
@@ -152,7 +153,7 @@ const Form = () => {
           
         }) ,
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+         // alert(JSON.stringify(values, null, 2));
         },
       });
 
