@@ -16,7 +16,7 @@ const Form = () => {
     
    const fetchApi = async () => {
       try {
-        await axios.post("/13.42.30.104/formAPI/", {
+        await axios.post("13.42.30.104:5000/formAPI/", {
           regNumber: formik.values.regNumber,
           carPurchaseDate: formik.values.carPurchaseDate,
           title: formik.values.title,
