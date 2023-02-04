@@ -16,7 +16,7 @@ const Form = () => {
     
    const fetchApi = async () => {
       try {
-        await axios.post("http://ec2-13-42-30-104.eu-west-2.compute.amazonaws.com:5000/formAPI", {
+        await axios.post("/formAPI", {
           regNumber: formik.values.regNumber,
           carPurchaseDate: formik.values.carPurchaseDate,
           title: formik.values.title,

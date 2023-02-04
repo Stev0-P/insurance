@@ -35,4 +35,4 @@
            "devDependencies":{
             "nodemon":"^2.0.20",
             "react-router-dom":"^6.6.2"},
-            "proxy":"http://localhost:5000"}
+            "proxy":"http://ec2-13-42-30-104.eu-west-2.compute.amazonaws.com:5000"}
