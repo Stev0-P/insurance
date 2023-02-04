@@ -28,6 +28,10 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
+app.get("/test", (req, res) => {
+  res.send("<h1>It's working 🤗</h1>");
+});
+
 app.post("/formAPI", async (req, res, next) => {
   const {
     regNumber,
