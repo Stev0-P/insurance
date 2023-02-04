@@ -20,28 +20,9 @@ import {
   import useMediaQuery from "@mui/material/useMediaQuery";
  import {useNavigate} from "react-router-dom"
   
-  const MenuLink = styled(Link)(({ theme }) => ({
-    textTransform: "uppercase",
-    fontSize: "0.8em",
-    letterSpacing: 0,
-    fontWeight: 600,
-    color: theme.palette.text.primary,
-    textDecoration: "none",
-    cursor: "pointer",
-    padding: 2,
-    ":hover": {
-      textDecoration: "underline",
-      color: theme.palette.secondary.main,
-    },
-  }));
-  
-  const navLinks = ["Home", "Contact Us", "Get a Quote!"].map(
-    (item) => ({
-      title: item,
-      href: `#${item}`,
-    })
-  );
 
+  
+  
   const linkList = [
     {
       text: "Home",
