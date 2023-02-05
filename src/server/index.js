@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
 import { config } from "dotenv";
+import path from "path";
 
 const app = express();
 
@@ -9,15 +10,20 @@ config();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "build")));
 app.use(bodyParser.json({ limit: "500mb" }));
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:5000");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
+});
+*/
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.get("/hello", (req, res) => {
