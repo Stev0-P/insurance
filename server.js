@@ -10,6 +10,8 @@ config();
 
 const PORT = process.env.PORT || 5000;
 
+const __dirname = path.resolve();
+
 app.use(express.static(path.join(__dirname, "build")));
 app.use(bodyParser.json({ limit: "500mb" }));
 /*app.use(function (req, res, next) {
